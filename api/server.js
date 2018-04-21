@@ -7,7 +7,7 @@ const express = require('express'),
       mongoose = require('mongoose');
 
 let db = mongoose.connection,
-    dburl = 'mongodb://localhost:27017',
+    dburl = 'mongodb://admin:admin@ds111798.mlab.com:11798/hoteles',
     port = 4000;
 
 let server = app.listen(port,_server());

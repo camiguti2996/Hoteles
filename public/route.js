@@ -6,5 +6,17 @@
 
     routing.$inject = ['$stateProvider', '$urlRouterProvider'];
 
-    function routing($stateProvider, $urlRouterProvider, $oclazyLoad) {}
+    function routing($stateProvider, $urlRouterProvider, $oclazyLoad) {
+        $stateProvider
+
+        .state('landingPage',{
+            url:'/',
+            templateUrl: './components/landingPage/landingPage.view.html',
+            data:{
+                pageTitle: 'Mishka'
+            }
+        })
+
+        $urlRouterProvider.otherwise('/');
+    }
 })();
