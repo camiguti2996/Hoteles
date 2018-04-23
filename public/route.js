@@ -11,7 +11,7 @@
 
         .state('landingPage',{
             url:'/',
-            templateUrl: './components/landingPage/landingPage.view.html',
+            templateUrl: './components/landingPage/landingPage.vista.html',
             data:{
                 pageTitle: 'Mishka'
             }
