@@ -34,8 +34,12 @@ app.use( (req, res, next) => {
   next();
 });
 
-const index = require('./index');
+const index = require('./index'),
+      usuario = require('./components/usuarios/usuarios.route');
+      // hotel = require('./components/hotel/hotel.route');
 
+// app.use('/api', hotel);
+app.use('/api', usuario); 
 app.use('/', index);
 
 module.exports = app;

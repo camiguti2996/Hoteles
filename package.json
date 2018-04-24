@@ -1,5 +1,5 @@
 {
-  "name": "mishka",
+  "name": "trotamundos",
   "version": "0.0.1",
   "description": "Sitio web hoteles",
   "main": "./api/server.js",
