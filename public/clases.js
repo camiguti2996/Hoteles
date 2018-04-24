@@ -1,6 +1,7 @@
 
 class Usuario{
     constructor(pCedula, pPrimernombre, pSegundoNombre, pPrimerApellido, pSegundoApellido, pCorreo, pContrasenna, pTipoUsuario){
+        this._id = 0;
         this.cedula = pCedula;
         this.primerNombre = pPrimernombre;
         this.segundoNombre = pSegundoNombre;
@@ -32,6 +33,11 @@ class Usuario{
     }
 
     //SETS
+
+    setId(pId) {
+        this._id = pId;
+      }
+      
     setPrimerNombre(pNuevoPrimerNombre){
         this.primerNombre = pNuevoPrimerNombre;
     }
@@ -81,8 +87,8 @@ class Cliente extends Usuario{
 }
 
 class Hotel{
-    constructor(pId, pNombreHotel, pFoto, pLatitud, pLongitud, pProvincia, pCanton, pDistrito, pDireccion, pTelefonoSC, pCorreoSC, pCorreoReserv, pTelefonoReserv){
-        this.id = pId;
+    constructor(pIdHotel, pNombreHotel, pFoto, pLatitud, pLongitud, pProvincia, pCanton, pDistrito, pDireccion, pTelefonoSC, pCorreoSC, pCorreoReserv, pTelefonoReserv){
+        this.idHotel = pIdHotel;
         this.nombreHotel = pNombreHotel;
         this.foto = pFoto;
         this.latitud = pLatitud;
@@ -97,8 +103,8 @@ class Hotel{
         this.correoReserv = pCorreoReserv;
     }
 
-    getId() {
-        return this.id;
+    getIdHotel() {
+        return this.idHotel;
     }
 
     getNombreHotel() {

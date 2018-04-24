@@ -4,6 +4,8 @@
     .module('trotamundos')
     .factory('dataStorageFactory', dataStorageFactory);
 
+    dataStorageFactory.$inject = ['$q', '$log', '$http'];
+    
     function dataStorageFactory() {
         const localStorageAPI = {
             setDatosUsuario: _setDatosUsuario,
@@ -17,6 +19,7 @@
 
     function _setDatosUsuario(usuariosDatos) {
         let respuesta;
+
         let peticion = $.ajax({
             url: 'http://localhost:4000/api/save_user',
             type: 'post',
@@ -24,16 +27,16 @@
             dataType: 'json',
             async: false,
             data: {
-                'cedula': usuariosDatos.cedula,
-                'primerNombre': usuariosDatos.primerNombre,
-                'segundoNombre': usuariosDatos.segundoNombre,
-                'primerApellido': usuariosDatos.primerApellido,
-                'segundoApellido': usuariosDatos.segundoApellido,
-                'correo': usuariosDatos.correo,
-                'contrasenna': usuariosDatos.contrasenna,
-                'tipoUsuario': usuariosDatos.tipoUsuario,
-                'fechaNacimiento': usuariosDatos.fechaNacimiento,
-                'telefono': usuariosDatos.telefono
+                cedula : usuariosDatos.cedula,
+                primerNombre : usuariosDatos.primerNombre,
+                segundoNombre : usuariosDatos.segundoNombre,
+                primerApellido : usuariosDatos.primerApellido,
+                segundoApellido : usuariosDatos.segundoApellido,
+                correo : usuariosDatos.correo,
+                contrasenna : usuariosDatos.contrasenna,
+                tipoUsuario : usuariosDatos.tipoUsuario,
+                fechaNacimiento  : usuariosDatos.fechaNacimiento,
+                telefono : usuariosDatos.telefono
             }
         });
 
@@ -91,6 +94,6 @@
         return sesionActiva;
     }
 
-};
+}
 
 })();

@@ -1,4 +1,8 @@
-'use strict'
+'use strict';
+
+/**
+ * Exportamos todas las dependencias necesarias para establecer la conexión
+ */
 const express = require('express'),
       app = express(),
       path = require('path'),
@@ -6,22 +10,39 @@ const express = require('express'),
       morgan = require('morgan'),
       mongoose = require('mongoose');
 
+/**
+ * Se definen las variables necesarias para la conexión con MongoDB
+ */
 let db = mongoose.connection,
-    dburl = 'mongodb://admin:admin@ds111798.mlab.com:11798/hoteles',
+    dburl = 'mongodb://admin:admin123@ds257589.mlab.com:57589/hoteles',
     port = 4000;
 
 let server = app.listen(port,_server());
 
+/**
+ * Se define la conexión con Mongoose, enviándole como parámetro la url de la base de datos
+ */
 mongoose.connect(dburl);
 
+/**
+ * Si la conexión falla, imprime en consola el error
+ */
 db.on('error', console.error.bind(console, 'Error de conexión: '));
 
+/**
+ * Si la conexión es exitosa nos imprime en la consola que se ha establecido conexión con Mongo
+ */
 db.once('open', () => {
   console.log('Base de datos conectada correctamente');
 });
 
+
+
 app.use(express.static(path.join(__dirname, 'public')));
 
+/**
+ * Le indicamos a la aplicación que el formato de los datos va a ser JSON
+ */
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(morgan('dev'));
@@ -34,14 +55,20 @@ app.use( (req, res, next) => {
   next();
 });
 
+/**
+ * Exportamos las funcionalidades
+ */
 const index = require('./index'),
-      usuario = require('./components/usuarios/usuarios.route');
-      // hotel = require('./components/hotel/hotel.route');
+      usuario = require('./usuarios/usuarios.route');
 
-// app.use('/api', hotel);
-app.use('/api', usuario); 
+/**
+ * Se definien las rutas de ExpressJS
+ */
+
+app.use('/api', usuario);
 app.use('/', index);
 
+/// Se guarda todo lo que se ha realizado
 module.exports = app;
 
 function _server(){

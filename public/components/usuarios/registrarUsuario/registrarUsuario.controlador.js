@@ -1,38 +1,32 @@
 (() => {
+  'use strict';
     angular
     .module('trotamundos')
     .controller('registroUsuarioControlador', registroUsuarioControlador);
   
-    registroUsuarioControlador.$inject = ['usuarioServicio'];
+    registroUsuarioControlador.$inject = ['$state', '$http', '$location', 'usuarioServicio'];
   
-    function registroUsuarioControlador(usuarioServicio){
-      const vm = this;
-      vm.nuevoUsuario = {};
+    function registroUsuarioControlador($state, $http, $location, usuarioServicio){
+      let vm = this;
+      vm.nuevoUsuario = {}; 
   
       vm.registrarUsuario = (pnuevoUsuario) => {
-        pnuevoUsuario.tipoUsuario = 2;
+        console.log(pnuevoUsuario);
 
-        let nuevoUsuario = Object.assign(new Cliente(), pnuevoUsuario);
+        pnuevoUsuario.tipoUsuario = 'Cliente';
+
+        let nuevoUsuario = new Cliente(pnuevoUsuario.cedula, pnuevoUsuario.primerNombre, pnuevoUsuario.segundoNombre, pnuevoUsuario.primerApellido, pnuevoUsuario.segundoApellido, pnuevoUsuario.correo, pnuevoUsuario.contrasenna, pnuevoUsuario.tipoUsuario,pnuevoUsuario.fechaNacimiento, pnuevoUsuario.telefono);
+
         let success = usuarioServicio.setUsuario(nuevoUsuario);
   
-        if(success == true){
-          swal({
-            title: "Registro Exitoso",
-            text: "El usuario se ha registrado correctamente",
-            icon: "sucess",
-            button: "Aceptar"
-          });
-
-          vm.nuevoUsuario = null;
-
-        }else{
-          swal({
-            title: "Registro Fallido",
-            text: "Ha ocurrido un error, inténtelo más tarde",
-            icon: "error",
+        if(success == 'Se registró el usuario correctamente'){
+    
+          swal("Registro exitoso", "El cliente ha sido registrado correctamente", "success", {
             button: "Aceptar",
           });
+          $location.path('/inicioSesion');
         }
+      
       }
     }
   })();
