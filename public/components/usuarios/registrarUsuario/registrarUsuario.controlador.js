@@ -19,13 +19,30 @@
 
         let success = usuarioServicio.setUsuario(nuevoUsuario);
   
-        if(success == 'Se registró el usuario correctamente'){
+        // if(success == 'Se registró el usuario correctamente'){
     
-          swal("Registro exitoso", "El cliente ha sido registrado correctamente", "success", {
-            button: "Aceptar",
+        //   swal("Registro exitoso", "El cliente ha sido registrado correctamente", "success", {
+        //     button: "Aceptar",
+        //   });
+        //   $location.path('/inicioSesion');
+        // }
+
+        if (success == true) {
+          swal({
+              title: "Registro exitoso",
+              text: "El usuario se ha registrado correctamente",
+              icon: "success",
+              button: "Aceptar"
           });
-          $location.path('/inicioSesion');
-        }
+          vm.nuevoUsuario = null;
+      } else {
+          swal({
+              title: "Registro fallido",
+              text: "Ha ocurrido un error, inténtelo nuevamente más tarde",
+              icon: "error",
+              button: "Aceptar"
+          });
+      }
       
       }
     }

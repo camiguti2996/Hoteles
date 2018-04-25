@@ -1,0 +1,68 @@
+<main id="registrarClientes">
+        <section class="container-fluid">
+          <div class="row">
+            <div class="col-md-2 py-5 px-5 panelIzquierdo">
+              <a href="#!/main">
+                <!-- <img src="../../../sources/img/chevron-left.svg" height="30px" width="30px" alt="">Regresar al menu principal</a>
+              <img src="../../../sources/img/logo_slateblue.svg" class="my-5" alt=""> -->
+              <a href="#!/registroUsuario" class="btn btnAccion">Registrar Clientes</a>
+            </div>
+            <div class="col-md-10 py-5 px-5 contenido">
+              <h2>Lista de Usuarios</h2>
+              <div class="form-group">
+                <label for="inputBuscar">Buscar usuarios</label>
+                <input type="text" class="form-control" id="inputBuscar" ng-model="buscarUsuario">
+              </div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Cédula</th>
+                    <th>Primer Nombre</th>
+                    <th>Segundo Nombre</th>
+                    <th>Primer Apellido</th>
+                    <th>Segundo Apellido</th>
+                    <th>Correo electrónico</th>
+                    <th>Fecha de Nacimiento</th>
+                    <th>Teléfono</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="usuario in vm.listaUsuarios | filter:buscarUsuario">
+                    <td>{{usuario.cedula}}</td>
+                    <td>{{usuario.primerNombre}}</td>
+                    <td>{{usuario.segundoNombre}}</td>
+                    <td>{{usuario.primerApellido}}</td>
+                    <td>{{usuario.segundoApellido}}</td>
+                    <td>{{usuario.correo}}</td>
+                    <td>{{usuario.fechaNacimiento | date:'mediumDate'}}</td>
+                    <td>{{usuario.telefono}}</td>
+                    <td>
+                      <li class="nav-item dropdown btnAccion" style="list-style:none">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acciones</a>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" ng-click="vm.edit(usuario)">Modificar Usuario</a>
+                          <a class="dropdown-item" ng-click="vm.disable(usuario)">Desactivar Usuario</a>
+                        </div>
+                      </li>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+      
+              <!-- <div ng-repeat="usuario in vm.listaUsuarios | filter:buscarUsuario" class="d-flex">
+      
+                <div class="card" style="width: 18rem;" class="col-md-4">
+                  <img class="card-img-top" src="{{usuario.telefono}}" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">{{usuario.primerNombre}} {{usuario.segundoNombre}} {{usuario.primerApellido}}</h5>
+                    <p class="card-text">{{usuario.primerNombre}} {{usuario.segundoNombre}} {{usuario.primerApellido}}</p>
+                    <a href="">{{usuario.correo}}</a>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+      
+              </div> -->
+            </div>
+          </div>
+        </section>
+      </main>

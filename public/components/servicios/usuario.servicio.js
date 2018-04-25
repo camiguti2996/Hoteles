@@ -8,8 +8,8 @@
 
     function usuarioServicio($http, $log, dataStorageFactory) {
         const usuariosAPI = {
-            setUsuario: _setUsuario
-            // getUsuario: _getUsuario
+            setUsuario: _setUsuario,
+            getUsuario: _getUsuario
         }
         return usuariosAPI;
 
@@ -21,21 +21,21 @@
             return registro;
         }
 
-        // function _getUsuario() {
-        //     let usuariosDatos = dataStorageFactory.getDatosUsuarios(),
-        //         listaUsuarios = [];
+        function _getUsuario() {
+            let usuariosDatos = dataStorageFactory.getDatosUsuarios(),
+                listaUsuarios = [];
 
-        //     usuariosDatos.forEach(obj => {
-        //         if (obj.tipoUsuario == 1) {
-        //             let nuevoAdmin = Object.assign(new Admin(), obj);
-        //             listaUsuarios.push(nuevoAdmin)
-        //         } else {
-        //             let nuevoCliente = Object.assign(new Cliente(), obj);
-        //             listaUsuarios.push(nuevoCliente);
-        //         }
-        //     });
-        //     return listaUsuarios;
-        // }
+            usuariosDatos.forEach(obj => {
+                if (obj.tipoUsuario == 1) {
+                    let nuevoAdmin = Object.assign(new Admin(), obj);
+                    listaUsuarios.push(nuevoAdmin)
+                } else {
+                    let nuevoCliente = Object.assign(new Cliente(), obj);
+                    listaUsuarios.push(nuevoCliente);
+                }
+            });
+            return listaUsuarios;
+        }
 
         // function _updateUsuario(usuarioEditado) {
         //     let success = false;

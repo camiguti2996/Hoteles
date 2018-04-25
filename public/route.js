@@ -32,6 +32,21 @@
               controllerAs: 'vm'
         })
 
+        .state('main',{
+            url:'/main',
+            templateUrl: './components/main/main.vista.html',
+            data:{
+                pageTitle: 'Trotamundos'
+            },
+            resolve: {
+                load: ['$ocLazyLoad', ($ocLazyLoad) => {
+                  return $ocLazyLoad.load('./components/main/main.controlador.js')
+                }]
+              },
+              controller: 'mainControlador',
+              controllerAs: 'vm'
+        })
+
         .state('registroUsuario',{
             url:'/registroUsuario',
             templateUrl: './components/usuarios/registrarUsuario/registrarUsuario.vista.html',
@@ -44,6 +59,21 @@
                 }]
               },
               controller: 'registroUsuarioControlador',
+              controllerAs: 'vm'
+        })
+
+        .state('listarUsuario',{
+            url:'/listarUsuario',
+            templateUrl: './components/usuarios/listarUsuario/listaUsuario.vista.html',
+            data:{
+                pageTitle: 'Trotamundos'
+            },
+            resolve: {
+                load: ['$ocLazyLoad', ($ocLazyLoad) => {
+                  return $ocLazyLoad.load('./components/usuarios/listarUsuario/listaUsuario.controlador.js')
+                }]
+              },
+              controller: 'listaUsuariosControlador',
               controllerAs: 'vm'
         })
 

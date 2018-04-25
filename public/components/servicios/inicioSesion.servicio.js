@@ -24,10 +24,10 @@
 
                         let credencialesCorrectos = {
                             id : listaUsuarios[i].getCedula(),
-                            rol : listaUsuarios[i].getRol() 
+                            rol : listaUsuarios[i].getTipoUsuario()
                         }
 
-                        success =                         dataStorageFactory.setSesion(credencialesCorrectos);
+                        success = dataStorageFactory.setSession(credencialesCorrectos);
                     }                    
                 }
 
@@ -53,17 +53,17 @@
         }
 
 
-        function obtenerDatosUsuarioActivo(pcedula) {
-            let userList = userService.getUsers(),
-                userData;
+        function obtenerDatosUsuarioActivo(pCedula) {
+            let listaUsuarios = usuarioServicio.getUsuario(),
+                datosUsuarios;
 
-            for (let i = 0; i < userList.length; i++) {
-                if (userList[i].getcedula() == pcedula) {
-                    userData = userList[i];
+            for (let i = 0; i < listaUsuarios.length; i++) {
+                if (listaUsuarios[i].getCedula() == pCedula) {
+                    datosUsuarios = listaUsuarios[i];
                 }
             };
 
-            return userData;
+            return datosUsuarios;
         }
      
     }
