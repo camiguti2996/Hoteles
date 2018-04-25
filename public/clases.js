@@ -20,6 +20,10 @@ class Usuario{
         return `${this.primerNombre} ${this.segundoNombre} ${this.primerApellido} ${this.segundoApellido}`;
     }
 
+    getNombre(){
+        return  `${this.primerNombre} ${this.primerApellido}`;
+    }
+
     getCorreo(){
         return this.correo;
     }

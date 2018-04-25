@@ -1,59 +1,8 @@
-// //LANDING PAGE
-// .carousel-item {
-//     height: 100vh;
-//     min-height: 300px;
-//     background: no-repeat center center scroll;
-//     -webkit-background-size: cover;
-//     -moz-background-size: cover;
-//     -o-background-size: cover;
-//     background-size: cover;
-//   }
+// $deepPurple: linear-gradient(to right, #2F3640 100%, #353B48 100%);
 
-//   //DASHBOARD
-
-// Estilos generales
-body {
-    background: #fff;
-  
-    aside{
-      height: 100vh;
-      background-color: blue;
-  
-      a{
-        background-color: yellow;
-
-        &:hover{
-          background: #c30303;
-        }
-      }
-    }
-  
-    .bg-black{
-      background: #000;
-    }
-    .bg-trasparet{
-      background: rgb(0, 0, 0) transparent;
-    }
-    .text-white{
-      color: #fff;
-    }
-    .text-black{
-      color: #000;
-    }
-    .btn{
-      outline: none !important;
-      font-weight:300!important
-    }
-  
-    .mt-6{
-      margin-top: 3.5rem !important;
-    }
-  
-    .mt-7{
-      margin-top: 4rem !important;
-    }
-  
-    .mt-8{
-      margin-top: 4.5rem !important;
-    }
-  }
+$background:#00b894;
+$slateblue: #8C7AE6;
+$white: #FFF;
+$midnight: #353B48;
+$fuenteTitulos: "Montserrat";
+$fuenteContenido: "Roboto";

@@ -1,0 +1,65 @@
+@import "../generalStyle";
+
+#dashboard{  
+  .panelIzquierdo{
+    background-color: $background;
+    background-size: cover;
+    color: $white;
+    min-height: 100vh;
+    // z-index: 10000;
+  }
+
+  .contenido{
+    // background-color: $white;
+    background-color: #e0e0e0;
+    max-height: 100vh;
+    overflow: scroll;
+  }
+
+  .list-group-item{
+    background-color: transparent !important;
+    border: none;
+    a{
+      color: $white;
+      text-decoration: none;
+      &:hover{
+        color: $white;
+      }
+    }
+  }
+ 
+  .btnAccion{
+    background-color: $slateblue;
+    color: $white;
+  }
+
+  .btnSecundario{
+    background-color: $midnight;
+    color: $white;
+    font-family: $fuenteContenido;
+  }
+
+  button{
+    width: 300px;
+  }
+  
+  h1,h2{
+    font-family: $fuenteTitulos;
+    }
+
+  h3,p,label{
+    font-family: $fuenteContenido;
+  }
+
+  i {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+
+  .right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+}

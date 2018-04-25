@@ -1,62 +1,47 @@
-<!-- <aside id="dashboard">
+<aside id="dashboard">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12 panelIzquierdo px-5" >
-                <img type="image/svg+xml" src="" class="my-5">
-                <ul class="list-group" class="my-4">
-                    <li class="list-group-item">
-                        <a href="" ui-sref="main.registroProducto">Mi perfil</a>
-                    </li>
-                    <li class="list-group-item" ng-hide="vm.tipoUsuario == 'Cliente'">
-                        <a href="" ui-sref="main.registroUsuarios" ui-sref-active="active">Clientes</a>
-                    </li>
-                    <li class="list-group-item" ng-hide="vm.tipoUsuario == 'Cliente'">
-                        <a href="" ui-sref="main.ranking">Lista clientes</a>
-                    </li>
-                    <li class="list-group-item" ng-hide="vm.tipoUsuario == 'Cliente'">
-                        <a href="" ui-sref="main.registroHotel" ui-sref-active="active">Hoteles</a>
-                    </li>
-                    <li class="list-group-item" ng-hide="vm.tipoUsuario == 'Cliente'">
-                        <a href="" ui-sref="main.ranking">Lista hoteles</a>
-                    </li>
-                    <!-- <li class="list-group-item" ng-hide="vm.tipoUsuario == 'Administrador' || vm.rolUsuario == 'Encargado de Aduana' || vm.rolUsuario == 'Encargado de Sucursal' || vm.rolUsuario == 'Repartidor'">
-                        <a href="#!/listarPaquetesCliente">Mis Paquetes</a>
-                    </li>
-                </ul>
-            </div>
+      <div class="row">
+        <div class="col-md-12 panelIzquierdo px-5">
+          <ul class="list-group" class="my-4">
+
+            <li class="list-group-item" ng-hide="vm.rolUsuario == 'Cliente'">
+              <a href="" ui-sref="main.registroClientes" ui-sref-active="active">Registro cliente</a>
+            </li>
+            <li class="list-group-item" ng-hide="vm.rolUsuario == 'Cliente'">
+              <a href="" ui-sref="main.registroCourier" ui-sref-active="active">Lista clientes</a>
+            </li>
+            <li class="list-group-item" ng-hide="vm.rolUsuario == 'Cliente'">
+              <a href="" ui-sref="main.sucursales">Sucursales</a>
+            </li>
+            <li class="list-group-item" ng-hide="vm.rolUsuario == 'Cliente'">
+              <a href="" ui-sref="main.registroProducto">Productos</a>
+            </li>
+            <li class="list-group-item" ng-hide="vm.rolUsuario == 'Cliente'">
+              <a href="" ui-sref="main.convenios" ui-sref-active="active">Convenios</a>
+            </li>
+            <li class="list-group-item" ng-hide="vm.rolUsuario == 'Cliente'">
+              <a href="#!/listarPaquetes">Paquetes</a>
+            </li>
+            <li class="list-group-item" ng-hide="vm.rolUsuario == 'Cliente'">
+              <a  href="" ui-sref="main.bitacora">Bitácora</a>
+            </li>
+            <li class="list-group-item" ng-hide="vm.rolUsuario == 'Cliente'">
+                <a  href="" ui-sref="main.ranking">Ranking</a>
+              </li>
+            <li class="list-group-item">
+              <a href="" ui-sref="main.verPerfil" ui-sref-active="active">Mi perfil</a>
+            </li>
+            <li class="list-group-item">
+              <a href="#!/registroPrealerta">Prealertar Paquete</a>
+            </li>
+            <li class="list-group-item">
+              <a href="" ui-sref="main.registroConvenioCliente" ui-sref-active="active">Solicitar Convenio</a>
+            </li>
+            <li class="list-group-item" ng-hide="vm.rolUsuario == 'Administrador'">
+              <a href="#!/listarPaquetesCliente">Mis Paquetes</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </div>
-</aside> -->
-
-<aside class="bg-black">
-    <ul class="nav flex-column">
-        <li class="nav-item dropright">
-            <a class="nav-link text-white dropdown-toggle py-5 mt-4" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <div class="d-inline">
-                    <i class="fas fa-building"></i>
-                </div>
-                <p class="d-inline">Trotamundos</p>
-            </a>
-
-            <div class="dropdown-menu">
-                <a class="dropdown-item" ui-sref="main.registroUsuarios">Registrar clientes</a>
-                <a class="dropdown-item" ui-sref="main.listaClientes">Lista clientes</a>
-
-                <div class="dropdown-divider"></div>
-
-                <a class="dropdown-item" ui-sref="main.registroHotel">Registrar hoteles</a>
-                <a class="dropdown-item" ui-sref="main.listaHoteles">Lista hoteles</a>
-
-            </div>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link text-white py-5" ui-sref="main.verPerfil" href="">
-                <div class="d-inline">
-                    <i class="fas fa-user"></i>
-                </div>
-                <p class="d-inline">Mi perfil</p>
-            </a>
-        </li>
-    </ul>
-</aside>
+  </aside>

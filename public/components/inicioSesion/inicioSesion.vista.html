@@ -1,25 +1,20 @@
-  <main id="registroUsuarios">
-    <section class="container-fluid">
-      <div class="row">
-        <div class="col-md-4 py-5 px-5">
-         <a href="#!/"><img src="" height="30px" width="30px" alt="">Regresar a la pagina principal</a>
-          <!-- <button class="link"> Regresar a la página principal</button> -->
-        </div>
-        <div class="col-md-8 py-5 px-5 contenido">
-          <h2>Iniciar Sesión</h2>
-          <form ng-submit="vm.inicioSesion(vm.nuevaSesion)" class="col-md-8">
-            <div class="form-group">
-              <label for="inputEmail">Correo electrónico</label>
-              <input type="text" class="form-control" id="inputEmail" ng-model="vm.nuevaSesion.correo" required>
-            </div>
-            <div class="form-group">
-              <label for="inputContrasenna">Contraseña</label>
-              <input type="password" class="form-control" id="inputContrasenna" ng-model="vm.nuevaSesion.contrasenna" required>
-            </div>
-            <button type="submit" class="btn btn-success">Iniciar Sesión</button> 
-          </form>
-        </div>
+<main id="registroUsuarios" class="row">
+  <section class="col-md-6">
+
+  </section>
+
+  <section class="col-md-6">
+    <form class="col-md-8 mx-auto" ng-submit="vm.inicioSesion(vm.nuevaSesion)">
+      <h3>Ingrese sus datos</h3>
+      <div class="form-group">
+        <label for="inputEmail">Correo electrónico</label>
+        <input type="text" class="form-control" id="inputEmail" ng-model="vm.nuevaSesion.correo" required>
       </div>
-    </section>
-  </main>
-  
+      <div class="form-group">
+        <label for="inputContrasenna">Contraseña</label>
+        <input type="password" class="form-control" id="inputContrasenna" ng-model="vm.nuevaSesion.contrasenna" required>
+      </div>
+      <button type="submit" class="btn btn-success">Iniciar Sesión</button>
+    </form>
+  </section>
+</main>

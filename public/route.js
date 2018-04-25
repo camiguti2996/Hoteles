@@ -77,6 +77,22 @@
               controllerAs: 'vm'
         })
 
+
+        .state('modificarUsuario',{
+            url:'/modificarUsuario',
+            templateUrl: './components/usuarios/modificarUsuario/modificarUsuario.vista.html',
+            data:{
+                pageTitle: 'Trotamundos'
+            },
+            resolve: {
+                load: ['$ocLazyLoad', ($ocLazyLoad) => {
+                  return $ocLazyLoad.load('./components/usuarios/modificarUsuario/modificarUsuario.controlador.js')
+                }]
+              },
+              controller: 'modificarUsuarioControlador',
+              controllerAs: 'vm'
+        })
+
         $urlRouterProvider.otherwise('/');
     }
 })();

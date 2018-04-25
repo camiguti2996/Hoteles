@@ -35,7 +35,7 @@
         }
 
         function _cierreSesion(){
-            let cierreSesion = dataStorageFactory.cierreSesion();
+            let cierreSesion = dataStorageFactory.closeSession();
             return cierreSesion;
         }
 
