@@ -2,106 +2,112 @@
 
 <main id="landingPage">
 
-  <section>
-    <div class="jumbotron jumbotron-fluid  d-flex hero align-items-center">
-      <div class="container">
+    <section>
+        <div class="jumbotron jumbotron-fluid d-flex hero align-items-center text-right">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+
+                    </div>
+                    <div class="col-md-6 justify-content-right" id="heroSection">
+                        <h1>Los mejores hoteles, las mejores opciones.</h1>
+                        <a href="" ui-sref="registroUsuario" class="btn btn-lg btn-success my-2 my-sm-0">Registrarse</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="servicios">
+        <h1>Servicios</h1>
+
         <div class="row">
-          <div class="col-md-7" id="heroSection">
-            <h1>Los mejores hoteles, las mejores ociones.</h1>
-            <a href="" ui-sref="registroUsuario" class="btn btn-lg btnAction my-2 my-sm-0">Registrarse</a>
-          </div>
+            <div class="card col-md-4" style="width: 18rem;">
+                <img class="card-img-top" src="../../sources/img/servicio1.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Calificar hoteles</h5>
+                    <p class="card-text">Planear, visitar, disfrutar y calificar. Los pasos perfectos para todo viaje.</p>
+                </div>
+            </div>
+            <div class="card col-md-4" style="width: 18rem;">
+                <img class="card-img-top" src="../../sources/img/servicio2.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Visualizar hoteles</h5>
+                    <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil sequi alias nemo? Autem quam neque optio ratione eveniet, nesciunt vel unde eos veritatis dignissimos provident minus sed? Voluptatem, ipsam soluta.</p>
+                </div>
+            </div>
+            <div class="card col-md-4" style="width: 18rem;">
+                <img class="card-img-top" src="../../sources/img/servicio3.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Recomendaciones</h5>
+                    <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt minima voluptatum ad optio incidunt doloremque similique atque distinctio ducimus eaque magni at quam, eum assumenda quidem odit. Quaerat, quos sapiente.</p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
-  <section id="nosotros" class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <img src="" alt="" class="img-fluid">
-      </div>
-      <div class="col-md-6">
-        <h1>Hola</h1>
-        <p>Hola.
-        </p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="container" id="servicios">
-    <h1>Servicios</h1>
-    <div class="row">
-      <!-- <div class="col-md-4 card">
-        <h5>Hoteles</h5>
-      </div>
-      <div class="col-md-4 card">
-        <h5>Opiniones</h5>
-      </div>
-      <div class="col-md-4 card">
-        <h5>Recomendaciones</h5>
-      </div> -->
-    </div>
-  </section>
-
-  <section class="container" id="hoteles">
-    <h1>Nuestros hoteles</h1>
-    <div class="row">
-      <div class="card-deck">
-        <div class="card" ng-repeat="hotel in vm.allHotels">
-          <img class="card-img-top img-fluid" src="{{hotel.getFoto()}}" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">{{hotel.hotelName}}</h5>
-            <p>{{hotel.canton}}, {{hotel.provincia}}</p>
-            <p>Dirección: {{hotel.address}}</p>
-          </div>
-          <div class="card-footer text-center">
-            <a href="#" class="btn btnAction">Ver Detalles</a>
-            <a href="#" class="btn btnAction" ng-show="vm.userRole == 1">Editar Hotel</a>
-          </div>
+    <section id="nosotros" class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="../../sources/img/servicio3.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <h1>Trotamundos es su mejor opción</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis et ab voluptates inventore. Similique reiciendis ex sequi error debitis, dolores aperiam, iste repellendus esse aut, illum sunt ab nemo expedita?
+                </p>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="container" id="contacto">
+    <section class="container" id="hoteles">
+        <h1>Nuestros hoteles</h1>
+        <div class="row"> 
+            <div class="card-deck">
+
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="contacto">
         <h1>Contacto</h1>
         <div class="row">
-                <div class="contactoSection">
-                        <form action="#" method="post">
-                            <!-- Message Input Area Start -->
-                            <div class="contact_input_area">
-                                <div class="row">
-                                    <!-- Single Input Area Start -->
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" name="name" id="nombre" placeholder="Nombre completo" required>
-                                        </div>
-                                    </div>
-                                    <!-- Single Input Area Start -->
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" name="email" id="correo" placeholder="Correo electrónico" required>
-                                        </div>
-                                    </div>
-                                    <!-- Single Input Area Start -->
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <textarea name="message" class="form-control" id="mensaje" cols="30" rows="4" placeholder="Your Message *" required></textarea>
-                                        </div>
-                                    </div>
-                                    <!-- Single Input Area Start -->
-                                    <div class="col-12">
-                                        <button type="submit" class="btn submit-btn">Send Now</button>
-                                    </div>
+            <div class="contactoSection col-md-12">
+                <form action="#" method="post">
+                    <!-- Message Input Area Start -->
+                    <div class="contact_input_area">
+                        <div class="row">
+                            <!-- Single Input Area Start -->
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="name" id="nombre" placeholder="Nombre completo" required>
                                 </div>
                             </div>
-                            <!-- Message Input Area End -->
-                        </form>
+                            <!-- Single Input Area Start -->
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" name="email" id="correo" placeholder="Correo electrónico" required>
+                                </div>
+                            </div>
+                            <!-- Single Input Area Start -->
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <textarea name="message" class="form-control" id="mensaje" cols="30" rows="4" placeholder="Mensaje" required></textarea>
+                                </div>
+                            </div>
+                            <!-- Single Input Area Start -->
+                            <div class="col-12">
+                                <button type="submit" class="btn submit-btn">Send Now</button>
+                            </div>
+                        </div>
                     </div>
+                    <!-- Message Input Area End -->
+                </form>
+            </div>
         </div>
-      </section>
+    </section>
 
 
-<footer>
+    <footer>
 
-</footer>
+    </footer>
 </main>

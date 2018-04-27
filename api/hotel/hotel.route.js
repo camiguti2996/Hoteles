@@ -1,36 +1,25 @@
-const express  = require('express'),
-      router   = express.Router(),
-      hoteles = require('./hotel.api');
+const express = require('express'),
+      router = express.Router(),
+      hotels = require('./hotel.api');
 
 router.param('id', (req, res, next, id) => {
-  req.body.id = id;
+  req.body._id = id;
   next();
 });
 
-/**
- * Función que se encarga de registrar los usuarios dentro del local storage
- */
 router.route('/save_hotel')
   .post((req, res) => {
-    hoteles.registrarHotel(req,res);
+    hotels.registerHotel(req,res);
 });
-
-/**
- * Función que obtiene todos los usuarios
- */
 
 router.route('/get_all_hotels')
   .get((req, res) => {
-    hoteles.listarHotel(req,res);
+    hotels.listHotel(req,res);
 });
 
-/**
- * Función que actualiza los usuarios
- */
-
-router.route('/update_hotels')
+router.route('/update_hotel')
   .put((req, res) => {
-    hoteles.updateHotel(req,res);
+    hotels.updateHotel(req,res);
 });
 
 module.exports = router;

@@ -14,8 +14,8 @@
             setSession: _setSession,
             getSession: _getSession,
             closeSession: _closeSession,
-            setDatosHotel : _setDatosHotel,
-            getDatosHotel: _getDatosHotel
+            setHotelData : _setHotelData,
+            getHotelData: _getHotelData
         };
 
         return localStorageAPI;
@@ -130,9 +130,9 @@
         return sesionActiva;
     }
 
-    function _setDatosHotel(hotelDatos) {
+    function _setHotelData(hotelData) {
         let response;
-    
+
         let request = $.ajax({
             url: 'http://localhost:4000/api/save_hotel',
             type: 'post',
@@ -140,54 +140,58 @@
             dataType: 'json',
             async: false,
             data: {
-              'nombreHotel' : hotelDatos.nombreHotel,
-              'foto': hotelDatos.foto, 
-              'latitud' : hotelDatos.latitud, 
-              'longitud' : hotelDatos.longitud,  
-              'provincia' : JSON.stringify(hotelDatos.provincia), 
-              'canton' : JSON.stringify(hotelDatos.canton), 
-              'distrito' : JSON.stringify(hotelDatos.distrito), 
-              'direccion' : hotelDatos.direccion,
-              'telefono' : hotelDatos.telefono,
-              'correoSC' : hotelDatos.correoSC,
-              'telefonoReserv' : hotelDatos.telefonoReserv,
-              'correoReserv' : hotelDatos.correoReserv
+                'tipoHotel' : hotelData.tipoHotel,
+                'nombreHotel' : hotelData.nombreHotel,
+                'foto' : hotelData.foto,
+                'latitud' : hotelData.latitud,
+                'longitud' : hotelData.longitud,
+                'provincia' : JSON.stringify(hotelData.provincia),
+                'canton' : JSON.stringify(hotelData.canton),
+                'distrito' : JSON.stringify(hotelData.distrito),
+                'direccion' : hotelData.direccion,
+                'telefonoServicioCliente' : hotelData.telefonoServicioCliente,
+                'correoServicioCliente' : hotelData.correoServicioCliente,
+                'telefonoReservacion' : hotelData.telefonoReservacion,
+                'correoReservacion' : hotelData.correoReservacion
             }
         });
+
         request.done((res) => {
             response = res.success;
-            console.log('Petición realizada con éxito');
+            console.log(res.msj);
         });
         request.fail((error) => {
             response = error;
             console.log('Ocurrió un error');
         });
+
         return response;
     }
     
     
-    function _getDatosHotel(){
-      let listaHotel = [];
+    function _getHotelData(){
+        let listaHoteles = [];
+        
+        let request = $.ajax({
+            url: 'http://localhost:4000/api/get_all_hotels',
+            type: 'get',
+            contentType: 'aplication/x-www-form-urlencoded;charset=utf-8',
+            dataType: 'json',
+            async: false,
+            data: {}
+        });
 
-      let request = $.ajax({
-        url:'http://localhost:4000/api/get_all_hotels',
-        type: 'get',
-        contentType: 'application/x-www-form-urlencoded;charset=utf-8',
-        dataType: 'json',
-        async: false,
-        data: {}
-      });
-    request.done((listaHotelBD) => {
-      console.log('Datos que vienen de la BD');
-      console.log(listaHotelBD);
-      listaHotel = listaHotelBD;
-    });
-    
-    request.fail(() => {
-      console.log('Ha ocurrido un error');
-      listaHotel = [];
-    });
-    return listaHotel;
+        request.done ((hotelsListBD) => {
+            console.log('Datos que vienen desde la base de datos')
+            console.log (hotelsListBD);
+            listaHoteles = hotelsListBD;
+        })
+
+        request.fail(()=> {
+            listaHoteles = [];
+            console.log ('Ocurrió un error');
+        });
+        return listaHoteles; 
     }
 
 }

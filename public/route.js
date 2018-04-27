@@ -81,7 +81,7 @@
             url:'/listarUsuario',
             templateUrl: './components/usuarios/listarUsuario/listaUsuario.vista.html',
             data:{
-                pageTitle: 'Trotamundos'
+                pageTitle: 'Listar usuario'
             },
             resolve: {
                 load: ['$ocLazyLoad', ($ocLazyLoad) => {
@@ -97,7 +97,7 @@
             url:'/modificarUsuario',
             templateUrl: './components/usuarios/modificarUsuario/modificarUsuario.vista.html',
             data:{
-                pageTitle: 'Trotamundos'
+                pageTitle: 'Modificar usuario'
             },
             params: {
                 objTempUsuario: ''
@@ -109,6 +109,21 @@
               },
               controller: 'modificarUsuarioControlador',
               controllerAs: 'vm'
+        })
+
+        .state('main.verPerfil', {
+            url: '/verPerfil',
+            templateUrl: './components/usuarios/verPerfil/verPerfil.vista.html',
+            data: {
+                pageTitle: 'Ver perfil'
+            },
+            resolve: {
+                load: ['$ocLazyLoad', ($ocLazyLoad) => {
+                    return $ocLazyLoad.load('./components/usuarios/verPerfil/verPerfil.controlador.js')
+                }]
+            },
+            controller: 'verPerfilControlador',
+            controllerAs: 'vm'
         })
 
         .state('main.registroHotel',{
@@ -125,6 +140,8 @@
               controller: 'registroHotelControlador',
               controllerAs: 'vm'
         })
+
+        
 
         $urlRouterProvider.otherwise('/');
     }

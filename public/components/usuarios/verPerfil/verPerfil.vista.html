@@ -1,0 +1,46 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Perfil de {{vm.infoUsuario.getNombreCompleto()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+
+                        <div class="col-md-12 col-lg-12 ">
+                            <table class="table table-user-information">
+                                <tbody> 
+                                    <tr>
+                                        <td>Nombre</td>
+                                        <td>{{vm.infoUsuario.getNombreCompleto()}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Fecha de nacimiento</td>
+                                        <td>{{vm.infoUsuario.getFechaNacimiento() | date:'dd MMM yyyy'}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <tr>
+                                            <td>Correo electrónico</td>
+                                            <td>
+                                                <a href="mailto:{{vm.infoUsuario.getCorreo()}}">{{vm.infoUsuario.getCorreo()}}</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Número de cédula</td>
+                                            <td>{{vm.infoUsuario.getCedula()}}</td>
+                                        </tr>
+
+
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

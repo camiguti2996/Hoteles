@@ -1,18 +1,14 @@
 (() => {
     'use strict';
     angular
-      .module('trotamundos')
-      .controller('registroHotelControlador', registroHotelControlador);
-  
-      registroHotelControlador.$inject = ['$http', 'imageUpload', 'NgMap', 'Upload', 'hotelServicio'];
-  
-    function registroHotelControlador($http, imageUpload, NgMap, Upload, hotelServicio) {
-        const vm = this;
-  
-        vm.current = '';
-  
-  
-      // carga de datos para las provincias, cantones y distritos
+        .module('trotamundos')
+        .controller('registroHotelControlador', registroHotelControlador);
+
+        registroHotelControlador.$inject = ['$http', 'NgMap', 'hotelServicio', 'imageUpload', 'Upload'];
+
+    function registroHotelControlador($http, NgMap, hotelServicio, imageUpload, Upload) {
+        let vm = this;
+
         vm.provincias = $http({
             method: 'GET',
             url: './sources/data/provincias.json'
@@ -21,7 +17,7 @@
         }, (error) => {
             console.log("Ocurrió un error " + error.data);
         });
-  
+
         vm.rellenarCantones = (pidProvincia) => {
             vm.cantones = $http({
                 method: 'GET',
@@ -38,7 +34,7 @@
                 console.log("Ocurrió un error " + error.data)
             });
         }
-  
+
         vm.rellenarDistrito = (pidCanton) => {
             vm.distritos = $http({
                 method: 'GET',
@@ -55,42 +51,48 @@
                 console.log("Ocurrió un error " + error.data);
             });
         }
-  
+
         NgMap.getMap("map").then((map) => {
             console.log(map.getCenter());
             console.log('markers', map.markers);
             console.log('shapes', map.shapes);
             vm.map = map;
         });
-  
+
         vm.getCurrentLocation = ($event) => {
             let postion = [$event.latLng.lat(), $event.latLng.lng()];
             console.log(postion);
             vm.current = postion;
         }
-  
+
         vm.nuevoHotel = {};
-  
-        vm.cloudObj = imageUpload.getConfiguracion();
-  
-        vm.preRegisterHotel = (pnuevoHotel) => {
+
+        vm.cloudObj = imageUpload.getConfiguration();
+
+        vm.preRegistrarHotel = (pnuevoHotel) => {
+            console.log('pregistrar');
             vm.cloudObj.data.file = pnuevoHotel.foto[0];
             Upload.upload(vm.cloudObj).success((data) => {
                 vm.registerHotel(pnuevoHotel, data.url);
             });
         }
-  
+
         vm.registerHotel = (pnuevoHotel, urlImage) => {
-            pnuevoHotel.idHotel = 0;
+            console.log('registrar');
+
+            pnuevoHotel._id = 0;
             pnuevoHotel.latitud = vm.current[0];
             pnuevoHotel.longitud = vm.current[1];
             pnuevoHotel.foto = urlImage;
+
             console.log(pnuevoHotel);
-  
+
             let nuevoHotel = Object.assign(new Hotel(), pnuevoHotel);
-  
+
+            console.log(nuevoHotel);
+
             let success = hotelServicio.setHotel(nuevoHotel);
-  
+
             if (success == true) {
                 swal({
                     title: "Registro exitoso",
@@ -108,6 +110,6 @@
                 });
             }
         }
-  
+
     }
-  })();
+})();

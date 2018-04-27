@@ -1,43 +1,31 @@
-const hotelModelo = require('./hotel.model');
+const HotelModel = require('./hotel.model');
 
-module.exports.registrarHotel = (req, res) => {
-  var nuevoHotel = new hotelModelo({
-    nombreHotel     : req.body.nombreHotel,
-    foto            : req.body.foto,
-    latitud         : req.body.latitud,
-    longitud        : req.body.longitud,
-    provincia       : req.body.provincia,
-    canton          : req.body.canton,
-    distrito        : req.body.distrito,
-    direccion       : req.body.direccion,
-    telefono        : req.body.telefono,
-    correoSC        : req.body.correoSC,
-    telefonoReserv  : req.body.telefonoReserv,
-    correoReserv    : req.body.correoReserv
-  });
+module.exports.registerHotel = (req, res) => {
+    console.log(req);
+    var newHotel = Object.assign(new HotelModel(), req.body);
 
-  nuevoHotel.save((err) => {
-    if (err) {
-      res.json({ success: false, msj: 'Ha ocurrido un error en el registro de usuarios ' + err });
-    } else {
-      res.json({ success: true, msj: 'Se registró el usuario correctamente' });
-    }
-  });
+    newHotel.save((err) => {
+        if (err) {
+            res.json({ success: false, msj: 'Ha ocurrido un error en el registro de usuarios' + err });
+        } else {
+            res.json({ success: true, msj: 'Se registró el usuario correctamente' });
+        }
+    });
 };
 
-module.exports.listarHotel = (req, res) => {
-    hotelModelo.find().then((hoteles) => {
-    res.send(hoteles);
-  });
+module.exports.listHotel = (req, res) => {
+    HotelModel.find().then((hotels) => {
+        res.send(hotels);
+    });
 };
 
 module.exports.updateHotel = (req, res) => {
-    hotelModelo.update({idHotel: req.body.idHotel}, req.body, (err, hotel) => {
-    if (err) {
-      res.json({ success: false, msg: 'No se ha actualizado.' + handleError(err) });
+    HotelModel.findByIdAndUpdate(req.body._id, { $set: req.body }, (err, user) => {
+        if (err) {
+            res.json({ success: false, msg: 'No se ha actualizado.' + handleError(err) });
 
-    } else {
-      res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
-    }
-  });
+        } else {
+            res.json({ success: true, msg: 'Se ha actualizado correctamente.' + res });
+        }
+    });
 };
