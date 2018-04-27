@@ -19,9 +19,9 @@
         });
         return usuarios;
       }
-      vm.edit = (pUser) => {
+      vm.editar = (pusuario) => {
         // console.log(pUser);
-        $state.go('usersEdit', { objTempUser: JSON.stringify(pUser) })
+        $state.go('main.modificarUsuario', { objTempUsuario: JSON.stringify(pusuario) })
       }
     }
   })();

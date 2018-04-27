@@ -91,7 +91,7 @@ class Cliente extends Usuario{
 }
 
 class Hotel{
-    constructor(pIdHotel, pNombreHotel, pFoto, pLatitud, pLongitud, pProvincia, pCanton, pDistrito, pDireccion, pTelefonoSC, pCorreoSC, pCorreoReserv, pTelefonoReserv){
+    constructor(pIdHotel, pNombreHotel, pFoto, pLatitud, pLongitud, pProvincia, pCanton, pDistrito, pDireccion, pTelefono, pCorreoSC, pCorreoReserv, pTelefonoReserv){
         this.idHotel = pIdHotel;
         this.nombreHotel = pNombreHotel;
         this.foto = pFoto;
@@ -101,7 +101,7 @@ class Hotel{
         this.canton = pCanton;
         this.distrito = pDistrito;
         this.direccion = pDireccion;
-        this.telefonoSC = pTelefonoSC;
+        this.telefono = pTelefono;
         this.correoSC = pCorreoSC;
         this.telefonoReserv = pTelefonoReserv;
         this.correoReserv = pCorreoReserv;

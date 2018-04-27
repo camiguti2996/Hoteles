@@ -1,14 +1,15 @@
-<h1>Registro de Usuarios</h1>
-<form name="formRegistrarCliente" ng-submit="vm.modificarUsuario(vm.nuevosDatosUsuario)" class="col-md-8">
+<h1>Modificar información</h1>
+
+<form ng-submit="vm.actualizarUsuario(vm.nuevosDatosUsuario)" name="formRegistroCliente" class="col-md-8" novalidate autocomplete="off">
   <!-- Información Personal -->
   <div class="my-3">
     <h3>Información Personal</h3>
 
     <div class="form-group">
-      <label for="inputCedula">Cédula:</label>
-      <input type="text" class="form-control" id="inputCedula" ng-model="vm.nuevosDatosUsuario.cedula" name="txtCedula"
-      pattern="^[0-9]\d{8}$" minlength="9" maxlength="9" autocomplete="off" required disabled>
-      <div ng-messages="formRegistrarCliente.txtCedula.$error" role="alert">
+      <label for="txtCedula">Nº de Identificación:</label>
+      <input type="text" class="form-control" ng-model="vm.nuevosDatosUsuario.cedula" name="txtCedula"
+      pattern="^[0-9]\d{8}$" minlength="9" maxlength="9" autocomplete="off" required>
+      <div ng-messages="formRegistroCliente.txtCedula.$error" role="alert">
         <div ng-message="required">
           <small class="form-text text-muted">Este campo es requerido</small>
         </div>
@@ -23,10 +24,10 @@
 
     <div class="form-row">
       <div class="form-group col-md-6">
-        <label for="inputPrimerNombre">Primer nombre</label>
-        <input type="text" class="form-control" id="inputPrimerNombre" ng-model="vm.nuevosDatosUsuario.primerNombre" name="txtPrimerNombre"
+        <label for="txtPrimerNombre">Primer nombre</label>
+        <input type="text" class="form-control" ng-model="vm.nuevosDatosUsuario.primerNombre" name="txtPrimerNombre"
           pattern="[ñáéíóúA-Za-z ]+" autocomplete="off" required>
-        <div ng-messages="formRegistrarCliente.txtPrimerNombre.$error" role="alert">
+        <div ng-messages="formRegistroCliente.txtPrimerNombre.$error" role="alert">
           <div ng-message="required">
             <small class="form-text text-muted">Este campo es requerido</small>
           </div>
@@ -37,10 +38,9 @@
       </div>
 
       <div class="form-group col-md-6">
-        <label for="inputSegundoNombre">Segundo nombre</label>
-        <input type="text" class="form-control" id="inputSegundoNombre" ng-model="vm.nuevosDatosUsuario.segundoNombre" name="txtSecondName"
-          pattern="[ñáéíóúA-Za-z ]+" autocomplete="off">
-        <div ng-messages="formRegistrarCliente.txtSegundoNombre.$error" role="alert">
+        <label for="txtSegundoNombre">Segundo nombre</label>
+        <input type="text" class="form-control" ng-model="vm.nuevosDatosUsuario.segundoNombre" name="txtSegundoNombre" pattern="[ñáéíóúA-Za-z ]+" autocomplete="off">
+        <div ng-messages="formRegistroCliente.txtSegundoNombre.$error" role="alert">
           <div ng-message="pattern">
             <small class="form-text text-muted">Formato incorrecto, no se permite ingresar numeros</small>
           </div>
@@ -48,10 +48,9 @@
       </div>
 
       <div class="form-group col-md-6">
-        <label for="inputPrimerApellido">Primer Apellido</label>
-        <input type="text" class="form-control" id="inputPrimerApellido" ng-model="vm.nuevosDatosUsuario.primerApellido" name="txtFirstSurname"
-          pattern="[ñáéíóúA-Za-z ]+" autocomplete="off" required>
-        <div ng-messages="formRegistrarCliente.txtFirstSurname.$error" role="alert">
+        <label for="txtPrimerApellido">Primer Apellido</label>
+        <input type="text" class="form-control" ng-model="vm.nuevosDatosUsuario.primerApellido" name="txtPrimerApellido" pattern="[ñáéíóúA-Za-z ]+" autocomplete="off" required>
+        <div ng-messages="formRegistroCliente.txtPrimerApellido.$error" role="alert">
           <div ng-message="required">
             <small class="form-text text-muted">Este campo es requerido</small>
           </div>
@@ -62,10 +61,9 @@
       </div>
 
       <div class="form-group col-md-6">
-        <label for="inputSegundoApellido">Segundo Apellido</label>
-        <input type="text" class="form-control" id="inputSegundoApellido" ng-model="vm.nuevosDatosUsuario.segundoApellido" name="txtSecondSurname"
-          pattern="[ñáéíóúA-Za-z ]+" autocomplete="off">
-        <div ng-messages="formRegistrarCliente.txtSegundoApellido.$error" role="alert">
+        <label for="txtSegundoApellido">Segundo Apellido</label>
+        <input type="text" class="form-control" ng-model="vm.nuevosDatosUsuario.segundoApellido" name="txtSegundoApellido" pattern="[ñáéíóúA-Za-z ]+" autocomplete="off">
+        <div ng-messages="formRegistroCliente.txtSegundoApellido.$error" role="alert">
           <div ng-message="pattern">
             <small class="form-text text-muted">Formato incorrecto, no se permite ingresar numeros</small>
           </div>
@@ -75,20 +73,20 @@
 
     <div class="form-row">
       <div class="form-group col-md-6">
-        <label for="inputEmail">Correo Electrónico:</label>
-        <input type="email" class="form-control" id="inputFechaNacimiento" ng-model="vm.nuevosDatosUsuario.correo" name="txtEmailCliente" autocomplete="off"
-          required disabled>
-        <div ng-messages="formRegistrarCliente.txtEmailCliente.$error" role="alert">
-          <div ng-message="required">
-            <small class="form-text text-muted">Este campo es requerido</small>
-          </div>
-        </div>
-      </div>
-      <div class="form-group col-md-6">
-        <label for="inputEmail">Contraseña:</label>
-        <input type="password" class="form-control" id="inputFechaNacimiento" ng-model="vm.nuevosDatosUsuario.contrasenna" name="txtContrasenna" autocomplete="off"
+        <label for="txtCorreo">Correo Electrónico:</label>
+        <input type="email" class="form-control" ng-model="vm.nuevosDatosUsuario.correo" name="txtCorreo" autocomplete="off"
           required>
-        <div ng-messages="formRegistrarCliente.txtContrasenna.$error" role="alert">
+        <div ng-messages="formRegistroCliente.txtCorreo.$error" role="alert">
+          <div ng-message="required">
+            <small class="form-text text-muted">Este campo es requerido</small>
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="txtContrasenna">Contraseña:</label>
+        <input type="password" class="form-control" ng-model="vm.nuevosDatosUsuario.contrasenna" name="txtContrasenna" autocomplete="off"
+          required>
+        <div ng-messages="formRegistroCliente.txtContrasenna.$error" role="alert">
           <div ng-message="required">
             <small class="form-text text-muted">Este campo es requerido</small>
           </div>
@@ -98,10 +96,9 @@
 
     <div class="form-row">
       <div class="form-group col-md-6">
-        <label for="inputFechaNacimiento">Fecha de Nacimiento</label>
-        <input type="date" class="form-control" id="inputFechaNacimiento" ng-model="vm.nuevosDatosUsuario.fechaNacimiento" name="txtBirthdate"
-          autocomplete="off" required>
-        <div ng-messages="formRegistrarCliente.txtBirthdate.$error" role="alert">
+        <label for="txtFechaNacimiento">Fecha de Nacimiento</label>
+        <input type="date" class="form-control" ng-model="vm.nuevosDatosUsuario.fechaNacimiento" name="txtFechaNacimiento" autocomplete="off" required>
+        <div ng-messages="formRegistroCliente.txtFechaNacimiento.$error" role="alert">
           <div ng-message="required">
             <small class="form-text text-muted">Este campo es requerido</small>
           </div>
@@ -109,9 +106,9 @@
       </div>
 
       <div class="form-group col-md-6">
-        <label for="inputTelefono">Teléfono</label>
-        <input type="text" class="form-control" id="inputTelefono" ng-model="vm.nuevosDatosUsuario.telefono" name="txtTelefono" pattern="^[2-6-7-8]*\d{7}"  minlength="8" maxlength="8" required>
-        <div ng-messages="formRegistrarCliente.txtTelefono.$error" role="alert">
+        <label for="txtTelefono">Teléfono</label>
+        <input type="text" class="form-control" id="txtTelefono" ng-model="vm.nuevosDatosUsuario.telefono" name="txtTelefono" pattern="^[2-6-7-8]*\d{7}"  minlength="8" maxlength="8" required>
+        <div ng-messages="formRegistroCliente.txtTelefono.$error" role="alert">
           <div ng-message="required">
             <small class="form-text text-muted">Este campo es requerido</small>
           </div>
@@ -126,7 +123,7 @@
     </div>
   </div>
 
-  <button type="submit" class="btn btnAccion" ng-disabled="formRegistrarCliente.$invalid">Guardar Cambios</button>
-  <a href="" type="button" class="btn btn-light">Cancelar</a>
+  <button type="submit" class="btn btnAccion" ng-disabled="formRegistroCliente.$invalid">Guardar Cambios</button>
+  <a href="#!/main/listarUsuario" type="button" class="btn btn-light">Cancelar</a>
 
 </form>

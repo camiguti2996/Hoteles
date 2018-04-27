@@ -7,7 +7,7 @@ const gulp = require('gulp'),
       rename = require('gulp-rename'),
       nodemon = require('gulp-nodemon'),
       todo = require('gulp-todo'),
-      browserSync = require('browser-sync'),
+      // browserSync = require('browser-sync'),
       paths = {
         views : './public/components/**/**/*.html',
         styles: './public/sources/styles/**/*.scss',
@@ -24,9 +24,9 @@ gulp.task('connect', () => {
     port: 8000,
     livereload: true
   });
-  browserSync.init({
-    server: './public'
-  });
+  // browserSync.init({
+  //   server: './public'
+  // });
   nodemon();
 });
 
@@ -81,7 +81,7 @@ gulp.task('dependencies', () => {
 gulp.task('reload', () => {
   gulp.src([paths.views, paths.styles, paths.js, paths.jsBackEnd, paths.principalJs])
     .pipe(connect.reload())
-    .pipe(browserSync.stream());
+    // pipe(browserS.ync.stream());
 });
 
 gulp.task('styles', () => {
@@ -94,7 +94,7 @@ gulp.task('styles', () => {
 
 gulp.task('watch', () => {
   gulp.watch([paths.views, paths.styles, paths.js, paths.principalJs, paths.jsBackEnd], ['reload', 'to-do', 'styles'])
-    .on('change', browserSync.reload);
+    // .on('change', browserSync.reload);
 });
 
 gulp.task('default', ['connect', 'to-do', 'dependencies', 'reload', 'styles', 'watch']);

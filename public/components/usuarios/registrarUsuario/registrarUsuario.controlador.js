@@ -18,14 +18,6 @@
         let nuevoUsuario = new Cliente(pnuevoUsuario.cedula, pnuevoUsuario.primerNombre, pnuevoUsuario.segundoNombre, pnuevoUsuario.primerApellido, pnuevoUsuario.segundoApellido, pnuevoUsuario.correo, pnuevoUsuario.contrasenna, pnuevoUsuario.tipoUsuario,pnuevoUsuario.fechaNacimiento, pnuevoUsuario.telefono);
 
         let success = usuarioServicio.setUsuario(nuevoUsuario);
-  
-        // if(success == 'Se registró el usuario correctamente'){
-    
-        //   swal("Registro exitoso", "El cliente ha sido registrado correctamente", "success", {
-        //     button: "Aceptar",
-        //   });
-        //   $location.path('/inicioSesion');
-        // }
 
         if (success == true) {
           swal({

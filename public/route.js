@@ -32,21 +32,6 @@
               controllerAs: 'vm'
         })
 
-        .state('main',{
-            url:'/main',
-            templateUrl: './components/main/main.vista.html',
-            data:{
-                pageTitle: 'Trotamundos'
-            },
-            resolve: {
-                load: ['$ocLazyLoad', ($ocLazyLoad) => {
-                  return $ocLazyLoad.load('./components/main/main.controlador.js')
-                }]
-              },
-              controller: 'mainControlador',
-              controllerAs: 'vm'
-        })
-
         .state('registroUsuario',{
             url:'/registroUsuario',
             templateUrl: './components/usuarios/registrarUsuario/registrarUsuario.vista.html',
@@ -62,7 +47,37 @@
               controllerAs: 'vm'
         })
 
-        .state('listarUsuario',{
+        .state('main',{
+            url:'/main',
+            templateUrl: './components/main/main.vista.html',
+            data:{
+                pageTitle: 'Trotamundos'
+            },
+            resolve: {
+                load: ['$ocLazyLoad', ($ocLazyLoad) => {
+                  return $ocLazyLoad.load('./components/main/main.controlador.js')
+                }]
+              },
+              controller: 'mainControlador',
+              controllerAs: 'vm'
+        })
+
+        .state('main.registroUsuario',{
+            url:'/registroUsuario',
+            templateUrl: './components/usuarios/registrarUsuario/registrarUsuario.vista.html',
+            data:{
+                pageTitle: 'Trotamundos'
+            },
+            resolve: {
+                load: ['$ocLazyLoad', ($ocLazyLoad) => {
+                  return $ocLazyLoad.load('./components/usuarios/registrarUsuario/registrarUsuario.controlador.js')
+                }]
+              },
+              controller: 'registroUsuarioControlador',
+              controllerAs: 'vm'
+        })
+
+        .state('main.listarUsuario',{
             url:'/listarUsuario',
             templateUrl: './components/usuarios/listarUsuario/listaUsuario.vista.html',
             data:{
@@ -78,18 +93,36 @@
         })
 
 
-        .state('modificarUsuario',{
+        .state('main.modificarUsuario',{
             url:'/modificarUsuario',
             templateUrl: './components/usuarios/modificarUsuario/modificarUsuario.vista.html',
             data:{
                 pageTitle: 'Trotamundos'
             },
+            params: {
+                objTempUsuario: ''
+              },
             resolve: {
                 load: ['$ocLazyLoad', ($ocLazyLoad) => {
                   return $ocLazyLoad.load('./components/usuarios/modificarUsuario/modificarUsuario.controlador.js')
                 }]
               },
               controller: 'modificarUsuarioControlador',
+              controllerAs: 'vm'
+        })
+
+        .state('main.registroHotel',{
+            url:'/registroHotel',
+            templateUrl: './components/hotel/registrarHotel/registrarHotel.vista.html',
+            data:{
+                pageTitle: 'Trotamundos'
+            },
+            resolve: {
+                load: ['$ocLazyLoad', ($ocLazyLoad) => {
+                  return $ocLazyLoad.load('./components/hotel/registrarHotel/registrarHotel.controlador.js')
+                }]
+              },
+              controller: 'registroHotelControlador',
               controllerAs: 'vm'
         })
 

@@ -4,14 +4,13 @@
   .panelIzquierdo{
     background-color: $background;
     background-size: cover;
-    color: $white;
+    color: $sidebarOpciones;
     min-height: 100vh;
-    // z-index: 10000;
+    z-index: 10000;
   }
 
   .contenido{
-    // background-color: $white;
-    background-color: #e0e0e0;
+    background-color: $white;
     max-height: 100vh;
     overflow: scroll;
   }
@@ -20,10 +19,11 @@
     background-color: transparent !important;
     border: none;
     a{
-      color: $white;
+      color: $sidebarOpciones;
       text-decoration: none;
+      font-weight: 400;
       &:hover{
-        color: $white;
+        color: $black;
       }
     }
   }
@@ -34,7 +34,7 @@
   }
 
   .btnSecundario{
-    background-color: $midnight;
+    // background-color: $midnight;
     color: $white;
     font-family: $fuenteContenido;
   }
