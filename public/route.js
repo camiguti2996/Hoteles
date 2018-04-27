@@ -130,7 +130,7 @@
             url:'/registroHotel',
             templateUrl: './components/hotel/registrarHotel/registrarHotel.vista.html',
             data:{
-                pageTitle: 'Trotamundos'
+                pageTitle: 'Registro hoteles | Trotamundos'
             },
             resolve: {
                 load: ['$ocLazyLoad', ($ocLazyLoad) => {
@@ -145,11 +145,11 @@
             url:'/listarHotel',
             templateUrl: './components/hotel/listarHotel/listaHotel.vista.html',
             data:{
-                pageTitle: 'Trotamundos'
+                pageTitle: 'Lista hoteles | Trotamundos'
             },
             resolve: {
                 load: ['$ocLazyLoad', ($ocLazyLoad) => {
-                  return $ocLazyLoad.load('./components/hotel/listarHotel/listaHotel.vista.html')
+                  return $ocLazyLoad.load('./components/hotel/listarHotel/listaHotel.controlador.js')
                 }]
               },
               controller: 'listaHotelControlador',
@@ -157,7 +157,6 @@
         })
 
         
-
         $urlRouterProvider.otherwise('/');
     }
 })();

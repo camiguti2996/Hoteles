@@ -8,6 +8,16 @@
     function inicioSesionControlador($state, inicioSesionServicio){
         let vm = this;
 
+        vm.type = "password";
+    
+        vm.changeType = (checked)=>{
+          if(checked == true){
+            vm.type = "text";
+          }else{
+            vm.type = "password";
+          }
+        }
+
         vm.credenciales = {};
 
         vm.inicioSesion = (credenciales) => {
