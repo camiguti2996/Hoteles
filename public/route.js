@@ -141,6 +141,21 @@
               controllerAs: 'vm'
         })
 
+      .state('main.listarHotel',{
+            url:'/listarHotel',
+            templateUrl: './components/hotel/listarHotel/listaHotel.vista.html',
+            data:{
+                pageTitle: 'Trotamundos'
+            },
+            resolve: {
+                load: ['$ocLazyLoad', ($ocLazyLoad) => {
+                  return $ocLazyLoad.load('./components/hotel/listarHotel/listaHotel.vista.html')
+                }]
+              },
+              controller: 'listaHotelControlador',
+              controllerAs: 'vm'
+        })
+
         
 
         $urlRouterProvider.otherwise('/');

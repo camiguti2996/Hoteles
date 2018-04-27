@@ -9,7 +9,6 @@
     function hotelServicio($http, $log, dataStorageFactory) {
         const publicUserAPI = {
             setHotel: _setHotel,
-            updateHotel: _updateHotel,
             getHotel: _getHotel
         }
         return publicUserAPI;
@@ -47,12 +46,12 @@
             return hotelList;
         }
 
-        function _updateHotel(hotelData) {
-            let hotelList = _getHotel(),
-                success;
-            success = dataStorageFactory.updateHotelData(hotelData);
-            return success;
-        }
+        // function _updateHotel(hotelData) {
+        //     let hotelList = _getHotel(),
+        //         success;
+        //     success = dataStorageFactory.updateHotelData(hotelData);
+        //     return success;
+        // }
 
         // function _getHotelPorId(idHotel) {
         //     let listaHoteles = _getHotel(),

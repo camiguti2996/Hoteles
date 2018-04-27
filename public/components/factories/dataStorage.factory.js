@@ -140,7 +140,6 @@
             dataType: 'json',
             async: false,
             data: {
-                'tipoHotel' : hotelData.tipoHotel,
                 'nombreHotel' : hotelData.nombreHotel,
                 'foto' : hotelData.foto,
                 'latitud' : hotelData.latitud,
@@ -149,10 +148,10 @@
                 'canton' : JSON.stringify(hotelData.canton),
                 'distrito' : JSON.stringify(hotelData.distrito),
                 'direccion' : hotelData.direccion,
-                'telefonoServicioCliente' : hotelData.telefonoServicioCliente,
-                'correoServicioCliente' : hotelData.correoServicioCliente,
-                'telefonoReservacion' : hotelData.telefonoReservacion,
-                'correoReservacion' : hotelData.correoReservacion
+                'telefono' : hotelData.telefono,
+                'correoSC' : hotelData.correoSC,
+                'telefonoReserv' : hotelData.telefonoReserv,
+                'correoReserv' : hotelData.correoReserv
             }
         });
 

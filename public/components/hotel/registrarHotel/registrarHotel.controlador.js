@@ -4,9 +4,9 @@
         .module('trotamundos')
         .controller('registroHotelControlador', registroHotelControlador);
 
-        registroHotelControlador.$inject = ['$http', 'NgMap', 'hotelServicio', 'imageUpload', 'Upload'];
+        registroHotelControlador.$inject = ['$http', 'NgMap', 'hotelServicio', 'Upload', 'imageUpload'];
 
-    function registroHotelControlador($http, NgMap, hotelServicio, imageUpload, Upload) {
+    function registroHotelControlador($http, NgMap, hotelServicio, Upload, imageUpload) {
         let vm = this;
 
         vm.provincias = $http({
